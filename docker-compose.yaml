@@ -2,11 +2,12 @@ version: "3.8"
 services:
   pgsql_db:
     image: postgres
+    container_name: pgsql_db
     ports:
       - 9000:5432
     volumes:
-      - ./pkg/database/data:/var/lib/postgresql/data
+      - /var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=passwordpg
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=passwordpg
       - POSTGRES_DB=lsa_db
